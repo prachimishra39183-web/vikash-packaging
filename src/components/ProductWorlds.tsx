@@ -197,7 +197,7 @@ export default function ProductWorlds() {
                 <p className="mt-4 max-w-sm text-sm leading-6 text-plum/75">
                   GP-Clips, Silver-Clips 
                   
-                </p>
+               </p>
 
                 <a
                   href="/products"
@@ -225,13 +225,7 @@ export default function ProductWorlds() {
         {/* Bottom note */}
         <div className="mt-6 flex flex-col gap-2 border-t border-white/10 pt-5 text-xs text-silver-400 sm:flex-row sm:items-center sm:justify-between">
           <p>Industrial packaging. Thoughtfully selected.</p>
-          <a
-            href="/products"
-            className="inline-flex w-fit items-center gap-2 font-semibold text-chartreuse transition-colors hover:text-ivory"
-          >
-            Browse the complete range
-            <ArrowUpRight className="h-4 w-4" />
-          </a>
+      
         </div>
       </div>
     </section>

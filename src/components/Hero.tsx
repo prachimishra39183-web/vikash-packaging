@@ -1,24 +1,66 @@
 import { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown ,ArrowRight} from 'lucide-react';
 
 const HeroScene = lazy(() => import('@/components/HeroScene'));
 
 export default function Hero() {
   return (
-    <section id="top" className="relative min-h-screen w-full overflow-hidden bg-plum grain">
+    <section
+  id="top"
+  className="relative min-h-[400px] w-full overflow-hidden bg-plum grain lg:min-h-[700px]"
+>
       {/* Background gradient */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-chartreuse/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-coral/10 rounded-full blur-[100px]" />
-      </div>
+    
+{/* Decorative hero background */}
+<div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+  {/* Ambient corner glows */}
+  <div className="absolute -left-32 -top-24 h-80 w-80 rounded-full bg-chartreuse/10 blur-[100px]" />
+  <div className="absolute -right-24 top-20 h-96 w-96 rounded-full bg-coral/15 blur-[110px]" />
+  <div className="absolute -bottom-32 left-1/3 h-80 w-80 rounded-full bg-chartreuse/5 blur-[100px]" />
 
-      {/* 3D scene */}
-      <div className="absolute inset-0 z-10">
-        <Suspense fallback={null}>
-          <HeroScene />
-        </Suspense>
-      </div>
+  {/* Fine grid texture */}
+  <div
+    className="absolute inset-0 opacity-[0.08]"
+    style={{
+      backgroundImage:
+        'linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)',
+      backgroundSize: '64px 64px',
+      maskImage:
+        'linear-gradient(to bottom, black, transparent 90%)',
+    }}
+  />
+
+  {/* Corner decoration — top left */}
+  <div className="absolute left-6 top-24 h-12 w-12 border-l border-t border-chartreuse/50 sm:left-10 sm:top-28" />
+
+  {/* Corner decoration — top right */}
+  <div className="absolute right-6 top-24 h-12 w-12 border-r border-t border-white/20 sm:right-10 sm:top-28" />
+
+  {/* Corner decoration — bottom left */}
+  <div className="absolute bottom-8 left-6 h-12 w-12 border-b border-l border-white/20 sm:left-10" />
+
+  {/* Corner decoration — bottom right */}
+  <div className="absolute bottom-8 right-6 h-12 w-12 border-b border-r border-chartreuse/50 sm:right-10" />
+</div>
+
+{/* Inset video frame */}
+<div className="pointer-events-none absolute inset-x-4 top-24 bottom-24 z-[1] sm:inset-x-8 sm:top-28 sm:bottom-28 lg:inset-x-12 lg:top-32 lg:bottom-32">
+  <div className="absolute inset-0 overflow-hidden rounded-[28px] border border-white/15 shadow-[0_25px_100px_rgba(0,0,0,0.3)] sm:rounded-[36px]">
+    <Suspense fallback={null}>
+      <HeroScene />
+    </Suspense>
+
+    {/* Subtle tint to blend with the page */}
+    <div className="absolute inset-0 bg-gradient-to-br from-plum/20 via-transparent to-plum/40" />
+  </div>
+
+  {/* Floating lime corner marks */}
+  <span className="absolute -left-1 -top-1 z-10 h-8 w-8 rounded-tl-xl border-l-2 border-t-2 border-chartreuse" />
+  <span className="absolute -right-1 -top-1 z-10 h-8 w-8 rounded-tr-xl border-r-2 border-t-2 border-chartreuse" />
+  <span className="absolute -bottom-1 -left-1 z-10 h-8 w-8 rounded-bl-xl border-b-2 border-l-2 border-chartreuse" />
+  <span className="absolute -bottom-1 -right-1 z-10 h-8 w-8 rounded-br-xl border-b-2 border-r-2 border-chartreuse" />
+</div>
 
       {/* Text overlay */}
      
@@ -72,37 +114,48 @@ export default function Hero() {
  
         
           
+
 <motion.div
-  className="md:col-span-4 md:pb-4"
+  className="pointer-events-auto md:col-span-4 md:pb-4"
   initial={{ opacity: 0, x: 20 }}
   animate={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8, delay: 0.9 }}
 >
-  {/* Description */}
-  <div className="relative max-w-sm border-l-2 border-chartreuse/70 pl-5">
-    <span className="mb-3 block font-body text-[10px] font-bold uppercase tracking-[0.25em] text-chartreuse">
-      Packaging. Perfected.
-    </span>
+  <p className="mb-3 font-body text-xs font-semibold uppercase tracking-[0.24em] text-chartreuse">
+    Premium Packaging
+  </p>
 
-    <p className="font-body text-sm leading-7 text-ivory/75 md:text-base">
-      Industrial packaging straps and security seals, designed to keep
-      products protected and supply chains moving.
-    </p>
-  </div>
+  <h2 className="font-display text-2xl font-bold leading-tight text-ivory md:text-3xl">
+    Solutions
+    <span className="text-chartreuse"> That Deliver.</span>
+  </h2>
 
-  {/* Company signature */}
-  <div className="mt-6 flex flex-wrap items-center gap-3 pl-5">
-    <span className="font-display text-sm font-semibold tracking-wide text-ivory">
-      VIKASH PACK
-    </span>
+  <p className="mt-4 max-w-md font-body text-sm leading-7 text-silver-300 md:text-base">
+    Discover high-quality packaging materials for all your business needs.
+    Fast delivery, competitive prices, and exceptional quality.
+  </p>
 
-    <span className="h-1 w-1 rounded-full bg-coral" />
+  <div className="mt-6 flex flex-wrap gap-3">
+    <a
+      href="/products"
+      className="group inline-flex items-center gap-2 rounded-full bg-chartreuse px-5 py-3 text-sm font-bold text-plum transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(214,255,69,0.2)]"
+    >
+      Shop Now
+      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+    </a>
 
-    <span className="font-body text-[10px] uppercase tracking-[0.18em] text-silver-400">
-      Since 1998
-    </span>
+    <a
+      href="/products"
+      className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm font-semibold text-ivory transition-all duration-300 hover:border-chartreuse hover:text-chartreuse"
+    >
+      Browse Categories
+    </a>
   </div>
 </motion.div>
+
+  {/* Company signature */}
+ 
+
 </div>
 
 {/* Bottom navigation strip */}
@@ -132,25 +185,29 @@ export default function Hero() {
   </a>
 
   {/* Technical details */}
-  <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
-    <div className="flex items-center gap-2">
-      <span className="h-1.5 w-1.5 rounded-full bg-chartreuse" />
-      <span className="font-body text-[10px] font-medium tracking-[0.12em] text-silver-300">
-        PET / PP / STEEL
-      </span>
-    </div>
+ 
+{/* Technical details — visible glass panel */}
+<div className="flex flex-wrap items-center gap-x-5 gap-y-3 rounded-2xl border border-white/20 bg-[#17121F]/80 px-5 py-4 shadow-xl backdrop-blur-xl">
 
-    <span className="hidden h-4 w-px bg-white/15 sm:block" />
-
-    <div className="flex items-center gap-2">
-      <span className="flex h-5 w-5 items-center justify-center rounded-full border border-chartreuse/40 text-[9px] font-bold text-chartreuse">
-        Q
-      </span>
-      <span className="font-body text-[10px] font-medium tracking-[0.12em] text-silver-300">
-        ISO 9001 PROCESS
-      </span>
-    </div>
+  <div className="flex items-center gap-2">
+    <span className="h-2 w-2 shrink-0 rounded-full bg-chartreuse shadow-[0_0_10px_rgba(214,255,69,0.8)]" />
+    <span className="font-body text-xs font-bold tracking-[0.12em] text-white">
+      PET / PP / STEEL
+    </span>
   </div>
+
+  <span className="hidden h-5 w-px bg-white/25 sm:block" />
+
+  <div className="flex items-center gap-2">
+    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-chartreuse/70 bg-chartreuse/10 text-[10px] font-black text-chartreuse">
+      Q
+    </span>
+    <span className="font-body text-xs font-bold tracking-[0.12em] text-white">
+      ISO 9001 PROCESS
+    </span>
+  </div>
+
+</div>
 </motion.div>
 </div>
 </section>

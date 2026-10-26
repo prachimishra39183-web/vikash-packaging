@@ -1,114 +1,236 @@
+
 import { motion } from 'framer-motion';
 import { ArrowUpRight, MoveHorizontal } from 'lucide-react';
 import { useReveal } from '@/lib/hooks';
 import { IMAGES, PRODUCTS } from '@/lib/images';
 
 export default function ProductWorlds() {
-  const { ref: leftRef, visible: leftVis } = useReveal<HTMLDivElement>();
-  const { ref: rightRef, visible: rightVis } = useReveal<HTMLDivElement>();
+  const { ref: leftRef, visible: leftVis } =
+    useReveal<HTMLDivElement>();
+  const { ref: rightRef, visible: rightVis } =
+    useReveal<HTMLDivElement>();
 
   return (
-    <section id="worlds" className="relative bg-plum grain">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-10 pt-24 pb-8">
-        <motion.span
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-xs tracking-[0.3em] text-chartreuse uppercase"
-        >
-          Two Worlds / One Standard
-        </motion.span>
-        <h2 className="font-display font-800 text-ivory text-5xl md:text-7xl mt-3 tracking-tighter">
-          Product Worlds
-        </h2>
-      </div>
+    <section
+      id="worlds"
+      className="relative overflow-hidden bg-plum px-5 py-14 grain sm:px-8 md:px-10 md:py-20"
+    >
+      <div className="mx-auto max-w-7xl">
+        {/* Section heading */}
+        <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end md:mb-10">
+          <div>
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-[10px] font-semibold uppercase tracking-[0.25em] text-chartreuse sm:text-xs"
+            >
+              Two Worlds / One Standard
+            </motion.span>
 
-      <div className="grid lg:grid-cols-2 min-h-[80vh]">
-        {/* Straps world - dark, horizontal motion */}
-        <div ref={leftRef} className="relative overflow-hidden group cursor-pointer">
-          <div
-            className="absolute inset-0 bg-cover bg-center scale-110 transition-transform duration-[3s] group-hover:scale-100"
-            style={{ backgroundImage: `url(${IMAGES.steelCoils})` }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-plum/95 via-plum/60 to-plum/30" />
-          {/* horizontal motion line */}
-          <div className="absolute top-1/2 left-0 right-0 h-px edge-line overflow-hidden">
-            <motion.div
-              className="h-full bg-chartreuse w-1/3"
-              animate={leftVis ? { x: ['0%', '300%'] } : {}}
-              transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-            />
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mt-3 font-display text-4xl font-black tracking-tight text-ivory sm:text-5xl md:text-6xl"
+            >
+              Product <span className="text-chartreuse">Worlds.</span>
+            </motion.h2>
           </div>
 
-          <a href="#straps" className="relative z-10 h-full flex flex-col justify-between p-8 md:p-12 min-h-[70vh]">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] tracking-[0.3em] text-silver-300 uppercase">01 / Straps</span>
-              <MoveHorizontal className="w-5 h-5 text-silver-300" />
-            </div>
-
-            <motion.div
-              animate={leftVis ? { x: 0, opacity: 1 } : { x: -30, opacity: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h3 className="font-display font-900 text-ivory text-6xl md:text-8xl tracking-tightest leading-none">
-                Packaging
-                <br />
-                <span className="text-chartreuse">Straps</span>
-              </h3>
-              <p className="mt-6 text-silver-300 max-w-sm leading-relaxed">
-                PET, PP, and steel strapping coils engineered for tensile strength and load stability across every transit condition.
-              </p>
-              <div className="mt-8 inline-flex items-center gap-2 text-chartreuse text-sm font-medium group-hover:gap-4 transition-all">
-                Enter Strap Showcase
-                <ArrowUpRight className="w-4 h-4" />
-              </div>
-            </motion.div>
-          </a>
+          <p className="max-w-sm text-sm leading-6 text-silver-300">
+            From strong industrial strapping to dependable sealing
+            accessories, discover solutions for securing your shipments.
+          </p>
         </div>
 
-        {/* Seals world - light, showroom */}
-        <div ref={rightRef} className="relative overflow-hidden group cursor-pointer bg-ivory">
-          <div className="absolute inset-0 grain opacity-100" />
-          <div className="absolute inset-0 bg-gradient-to-tr from-ivory via-ivory/80 to-ivory-200" />
+        {/* Product cards */}
+        <div className="grid gap-5 lg:grid-cols-2">
+          {/* Straps */}
+          <motion.div
+            ref={leftRef}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="group relative isolate min-h-[370px] overflow-hidden rounded-2xl border border-white/10 sm:min-h-[400px] md:min-h-[430px]"
+          >
+            <img
+              src={IMAGES.steelCoils}
+              alt="Industrial steel strapping coils"
+              className="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
 
-          {/* showroom grid pattern */}
-          <div
-            className="absolute inset-0 opacity-[0.07]"
-            style={{
-              backgroundImage: 'linear-gradient(#17121F 1px, transparent 1px), linear-gradient(90deg, #17121F 1px, transparent 1px)',
-              backgroundSize: '60px 60px',
-            }}
-          />
+            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-plum/95 via-plum/75 to-plum/20" />
+            <div className="absolute inset-0 -z-10 bg-gradient-to-t from-plum/80 via-transparent to-transparent" />
 
-          {/* real product showcase strip */}
-          <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden md:flex gap-4 z-0">
-            <img src={PRODUCTS.gpClips} alt="GP-Clips" className="w-28 lg:w-36 h-auto object-contain opacity-90 rotate-[-6deg] hover:rotate-0 transition-transform duration-500" />
-            <img src={PRODUCTS.silverClip} alt="Silver-Clip" className="w-28 lg:w-36 h-auto object-contain opacity-90 rotate-[6deg] hover:rotate-0 transition-transform duration-500 mt-8" />
-          </div>
-
-          <a href="#seals" className="relative z-10 h-full flex flex-col justify-between p-8 md:p-12 min-h-[70vh]">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] tracking-[0.3em] text-plum/60 uppercase">02 / Seals</span>
-              <div className="w-5 h-5 rounded-full border-2 border-plum/40" />
+            {/* Decorative line */}
+            <div className="absolute right-0 top-1/3 h-px w-1/2 overflow-hidden bg-white/10">
+              <motion.div
+                className="h-full w-1/3 bg-chartreuse"
+                animate={leftVis ? { x: ['-100%', '300%'] } : {}}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
+              />
             </div>
 
-            <motion.div
-              animate={rightVis ? { x: 0, opacity: 1 } : { x: 30, opacity: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h3 className="font-display font-900 text-plum text-6xl md:text-8xl tracking-tightest leading-none">
-                Packaging
-                <br />
-                <span className="text-coral">Seals</span>
-              </h3>
-              <p className="mt-6 text-plum/70 max-w-sm leading-relaxed">
-                GP-Clips, Silver-Clips, drum, resin, and GI seals — the final lock that holds the load, displayed in a premium industrial showroom with real Vikash Pack products.
-              </p>
-              <div className="mt-8 inline-flex items-center gap-2 text-coral text-sm font-medium group-hover:gap-4 transition-all">
-                Enter Seal Explorer
-                <ArrowUpRight className="w-4 h-4" />
+            <div className="flex min-h-[370px] flex-col justify-between p-6 sm:min-h-[400px] sm:p-8 md:min-h-[430px] md:p-9">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] uppercase tracking-[0.22em] text-silver-300">
+                  01 / Straps
+                </span>
+                <MoveHorizontal className="h-5 w-5 text-chartreuse" />
               </div>
-            </motion.div>
+
+              <motion.div
+                animate={
+                  leftVis
+                    ? { x: 0, opacity: 1 }
+                    : { x: -15, opacity: 0.6 }
+                }
+                transition={{ duration: 0.6 }}
+                className="max-w-lg"
+              >
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-chartreuse">
+                  Strength in every wrap
+                </p>
+
+                <h3 className="font-display text-4xl font-black leading-[0.95] tracking-tight text-ivory sm:text-5xl md:text-6xl">
+                  Packaging
+                  <br />
+                  <span className="text-chartreuse">Straps.</span>
+                </h3>
+
+                <p className="mt-4 max-w-sm text-sm leading-6 text-silver-300">
+                  PET, PP, and steel strapping coils designed to support
+                  load stability and reliable industrial packaging.
+                </p>
+
+                <a
+                  href="/products"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-chartreuse px-5 py-3 text-xs font-bold text-plum transition-all hover:gap-4"
+                >
+                  Explore Straps
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </motion.div>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                {['PET', 'PP', 'STEEL'].map((type) => (
+                  <span
+                    key={type}
+                    className="rounded-full border border-white/20 px-3 py-1.5 text-[9px] font-semibold tracking-[0.16em] text-silver-300"
+                  >
+                    {type}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Seals */}
+          <motion.div
+            ref={rightRef}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.12 }}
+            className="group relative isolate min-h-[370px] overflow-hidden rounded-2xl border border-plum/10 bg-[#F0EDE5] sm:min-h-[400px] md:min-h-[430px]"
+          >
+            {/* Light showroom background */}
+            <div className="absolute inset-0 -z-20 bg-gradient-to-br from-[#FAF8F0] via-[#EEE9DF] to-[#DCD5C9]" />
+
+            <div
+              className="absolute inset-0 -z-10 opacity-[0.07]"
+              style={{
+                backgroundImage:
+                  'linear-gradient(#17121F 1px, transparent 1px), linear-gradient(90deg, #17121F 1px, transparent 1px)',
+                backgroundSize: '42px 42px',
+              }}
+            />
+
+            {/* Product images */}
+            <div className="pointer-events-none absolute right-3 top-16 flex items-center gap-1 opacity-60 transition-all duration-500 group-hover:opacity-100 sm:right-5 sm:top-20 md:right-5 md:top-1/2 md:-translate-y-1/2">
+              <img
+                src="/gp.png"
+                alt="GP-Clips"
+                className="w-20 rotate-[-8deg] object-contain transition-transform duration-500 group-hover:rotate-0 sm:w-24 md:w-28 lg:w-32"
+              />
+              <img
+                src="/tape.png"
+                alt="Silver-Clip"
+                className="w-20 rotate-[8deg] object-contain transition-transform duration-500 group-hover:rotate-0 sm:w-24 md:w-28 lg:w-32"
+              />
+            </div>
+
+            <div className="flex min-h-[370px] flex-col justify-between p-6 sm:min-h-[400px] sm:p-8 md:min-h-[430px] md:p-9">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] uppercase tracking-[0.22em] text-plum/60">
+                  02 / Seals
+                </span>
+                <span className="h-5 w-5 rounded-full border-2 border-coral/70" />
+              </div>
+
+              <motion.div
+                animate={
+                  rightVis
+                    ? { x: 0, opacity: 1 }
+                    : { x: 15, opacity: 0.6 }
+                }
+                transition={{ duration: 0.6 }}
+                className="relative z-10 max-w-[290px] sm:max-w-sm"
+              >
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-coral">
+                  The final secure fit
+                </p>
+
+                <h3 className="font-display text-3xl font-black leading-[0.95] tracking-tight text-plum sm:text-5xl md:text-5xl">
+                  Packaging
+                  <br />
+                  <span className="text-coral">Seals.</span>
+                </h3>
+
+                <p className="mt-4 max-w-sm text-sm leading-6 text-plum/75">
+                  GP-Clips, Silver-Clips 
+                  
+                </p>
+
+                <a
+                  href="/products"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-plum px-5 py-3 text-xs font-bold text-ivory transition-all hover:gap-4 hover:bg-coral"
+                >
+                  Explore Seals
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </motion.div>
+
+              <div className="relative z-10 mt-6 flex flex-wrap gap-2">
+                {['GP-CLIPS', 'SILVER-CLIPS', 'GI SEALS'].map((type) => (
+                  <span
+                    key={type}
+                    className="rounded-full border border-plum/15 bg-white/40 px-3 py-1.5 text-[9px] font-semibold tracking-[0.12em] text-plum/70"
+                  >
+                    {type}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Bottom note */}
+        <div className="mt-6 flex flex-col gap-2 border-t border-white/10 pt-5 text-xs text-silver-400 sm:flex-row sm:items-center sm:justify-between">
+          <p>Industrial packaging. Thoughtfully selected.</p>
+          <a
+            href="/products"
+            className="inline-flex w-fit items-center gap-2 font-semibold text-chartreuse transition-colors hover:text-ivory"
+          >
+            Browse the complete range
+            <ArrowUpRight className="h-4 w-4" />
           </a>
         </div>
       </div>

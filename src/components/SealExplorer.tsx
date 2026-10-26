@@ -21,7 +21,7 @@ const SEALS: Seal[] = [
     desc: 'Galvanized parcel packing clips for PP and PET strapping. Packed 25 kg, priced per kilogram.',
     finish: 'Galvanized steel',
     application: 'PP / PET strapping — parcel & pallet',
-    image: PRODUCTS.gpClips,
+    image:'/gp.png',
   },
   {
     id: 'silver-clip',
@@ -30,7 +30,7 @@ const SEALS: Seal[] = [
     desc: 'Silver-finish parcel packing clips for secure strapping closure. Packed 25 pieces, priced per piece.',
     finish: 'Silver-coated steel',
     application: 'PP / PET strapping — parcel closure',
-    image: PRODUCTS.silverClip,
+    image: 'tape.png',
   },
   {
     id: 'drum',

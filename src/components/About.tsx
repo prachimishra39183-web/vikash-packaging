@@ -63,37 +63,180 @@ export default function About() {
         </div>
 
         {/* Timeline */}
-        <div className="border-t border-plum/10 pt-16">
-          <h3 className="font-display font-700 text-plum text-3xl md:text-4xl tracking-tighter mb-12">
-            The timeline
-          </h3>
-          <div className="relative">
-            {/* line */}
-            <div className="absolute left-0 right-0 top-[60px] h-px bg-plum/15" />
+ 
+{/* Premium colourful timeline */}
+<section className="relative overflow-hidden border-t border-plum/10 py-16 md:py-24">
 
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-2">
-              {TIMELINE.map((t, i) => (
-                <motion.div
-                  key={t.year}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.12 }}
-                  className="relative"
-                >
-                  <div className="font-display font-900 text-plum text-3xl md:text-4xl tracking-tighter mb-8">
-                    {t.year}
-                  </div>
-                  <div className="relative">
-                    <div className={`w-3 h-3 rounded-full ${i === 0 ? 'bg-coral' : 'bg-plum'} absolute -top-[58px] left-0 ring-4 ring-ivory`} />
-                  </div>
-                  <h4 className="font-display font-700 text-plum text-lg mt-2">{t.event}</h4>
-                  <p className="text-plum/60 text-sm mt-2 leading-relaxed">{t.desc}</p>
-                </motion.div>
-              ))}
-            </div>
+  {/* Ambient colour */}
+  <div className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-coral/10 blur-3xl" />
+  <div className="pointer-events-none absolute -left-20 bottom-10 h-72 w-72 rounded-full bg-chartreuse/15 blur-3xl" />
+
+  {/* Heading */}
+  <div className="relative mb-12 flex flex-col justify-between gap-6 md:mb-16 md:flex-row md:items-end">
+    <div>
+      <div className="mb-5 flex items-center gap-3">
+        <span className="h-1 w-10 rounded-full bg-coral" />
+        <span className="font-body text-xs font-bold uppercase tracking-[0.25em] text-coral">
+          Our journey · Since day one
+        </span>
+      </div>
+
+      <h3 className="font-display text-5xl font-black leading-[0.9] tracking-tight text-plum sm:text-6xl md:text-7xl">
+        BUILT THROUGH
+        <br />
+        <span className="text-coral">EXPERIENCE.</span>
+      </h3>
+
+      <p className="mt-5 max-w-md font-body text-sm leading-7 text-plum/75 md:text-base">
+        From our first steps to stronger packaging solutions, every chapter
+        has shaped who we are today.
+      </p>
+    </div>
+
+    <div className="flex w-fit items-center gap-3 rounded-2xl border border-plum/10 bg-white/80 px-5 py-4 shadow-lg shadow-plum/5 backdrop-blur-sm">
+      <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-chartreuse text-xl font-black text-plum">
+        ↗
+      </span>
+      <div>
+        <p className="font-display text-xl font-bold text-plum">ALWAYS MOVING</p>
+        <p className="font-body text-xs text-plum/60">One milestone at a time</p>
+      </div>
+    </div>
+  </div>
+
+  {/* Timeline cards */}
+  <div className="relative grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-5">
+    {TIMELINE.map((t, i) => {
+      const themes = [
+        {
+          bg: 'bg-plum',
+          year: 'text-chartreuse',
+          badge: 'bg-chartreuse text-plum',
+          line: 'bg-chartreuse',
+          title: 'text-ivory',
+          body: 'text-ivory/75',
+          border: 'border-chartreuse/30',
+          glow: 'group-hover:shadow-chartreuse/10',
+        },
+        {
+          bg: 'bg-[#FFF0E9]',
+          year: 'text-[#D94D2B]',
+          badge: 'bg-[#FF7043] text-white',
+          line: 'bg-[#FF7043]',
+          title: 'text-plum',
+          body: 'text-plum/75',
+          border: 'border-[#FF7043]/30',
+          glow: 'group-hover:shadow-coral/15',
+        },
+        {
+          bg: 'bg-[#EAF5D5]',
+          year: 'text-[#405C16]',
+          badge: 'bg-[#D6FF45] text-plum',
+          line: 'bg-[#8BAC25]',
+          title: 'text-plum',
+          body: 'text-plum/75',
+          border: 'border-[#8BAC25]/30',
+          glow: 'group-hover:shadow-chartreuse/20',
+        },
+        {
+          bg: 'bg-[#EDE6FA]',
+          year: 'text-[#6941A5]',
+          badge: 'bg-[#A78BFA] text-[#241A32]',
+          line: 'bg-[#8B5CF6]',
+          title: 'text-[#241A32]',
+          body: 'text-[#241A32]/75',
+          border: 'border-[#A78BFA]/40',
+          glow: 'group-hover:shadow-violet-300/30',
+        },
+        {
+          bg: 'bg-[#DDF8F0]',
+          year: 'text-[#08785B]',
+          badge: 'bg-[#A6FFE0] text-[#064E3B]',
+          line: 'bg-[#10B981]',
+          title: 'text-[#064E3B]',
+          body: 'text-[#064E3B]/75',
+          border: 'border-[#10B981]/30',
+          glow: 'group-hover:shadow-emerald-300/30',
+        },
+      ];
+
+      const theme = themes[i % themes.length];
+
+      return (
+        <motion.article
+          key={t.year}
+          initial={{ opacity: 0, y: 30, rotateX: 5 }}
+          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.55, delay: i * 0.09 }}
+          className={`group relative flex min-h-[290px] flex-col overflow-hidden rounded-[1.5rem] border ${theme.border} ${theme.bg} p-6 shadow-md shadow-plum/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${theme.glow} md:p-5 xl:p-5`}
+          style={{ transformStyle: 'preserve-3d' }}
+        >
+          {/* Large decorative background number */}
+          <span className="pointer-events-none absolute -right-2 -top-5 font-display text-[8rem] font-black leading-none opacity-[0.06] transition-transform duration-500 group-hover:scale-110">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+
+          {/* Card top */}
+          <div className="relative z-10 flex items-start justify-between gap-3">
+            <span className={`rounded-full px-3 py-1.5 font-body text-[9px] font-extrabold uppercase tracking-[0.15em] ${theme.badge}`}>
+              Chapter {String(i + 1).padStart(2, '0')}
+            </span>
+
+            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-current/15 text-lg transition-transform duration-300 group-hover:rotate-45">
+              ↗
+            </span>
           </div>
-        </div>
+
+          {/* Year */}
+          <div className="relative z-10 mt-9">
+            <p className={`font-display text-5xl font-black leading-none tracking-tight ${theme.year} sm:text-6xl`}>
+              {t.year}
+            </p>
+            <div className={`mt-4 h-1 w-12 rounded-full transition-all duration-500 group-hover:w-20 ${theme.line}`} />
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 mt-6">
+            <h4 className={`font-display text-2xl font-bold leading-tight tracking-tight ${theme.title}`}>
+              {t.event}
+            </h4>
+
+            <p className={`mt-3 font-body text-sm leading-6 ${theme.body}`}>
+              {t.desc}
+            </p>
+          </div>
+
+          {/* Bottom marker */}
+          <div className="relative z-10 mt-auto flex items-center gap-2 pt-6">
+            <span className={`h-2 w-2 rounded-full ${theme.line}`} />
+            <span className={`font-body text-[9px] font-bold uppercase tracking-[0.18em] ${theme.body}`}>
+              Vikash Pack · Milestone
+            </span>
+          </div>
+
+          {/* Gloss highlight */}
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/70" />
+        </motion.article>
+      );
+    })}
+  </div>
+
+  {/* Footer signature */}
+  <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-plum/15 pt-6">
+    <p className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-plum/65">
+      Experience builds trust. Quality builds the future.
+    </p>
+
+    <div className="flex items-center gap-2">
+      <span className="h-2 w-2 animate-pulse rounded-full bg-chartreuse ring-4 ring-chartreuse/25" />
+      <span className="font-body text-[10px] font-bold uppercase tracking-widest text-plum">
+        The journey continues
+      </span>
+    </div>
+  </div>
+</section>
+
       </div>
     </section>
   );

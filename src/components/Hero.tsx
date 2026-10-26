@@ -21,82 +21,139 @@ export default function Hero() {
       </div>
 
       {/* Text overlay */}
-      <div className="relative z-20 min-h-screen flex flex-col justify-between max-w-[1600px] mx-auto px-6 md:px-10 pt-32 pb-12 pointer-events-none">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+     
+{/* Text overlay */}
+<div className="relative z-20 min-h-screen flex flex-col justify-between max-w-[1600px] mx-auto px-6 md:px-10 pt-32 pb-12 pointer-events-none">
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.2 }}
+    className="flex items-center gap-3 mt-4"
+  >
+    <span className="w-12 h-px bg-chartreuse" />
+    <span className="text-xs tracking-[0.3em] text-chartreuse uppercase font-medium">
+      Engineered to Secure
+    </span>
+  </motion.div>
+
+  <div className="flex-1" />
+
+  <div className="grid md:grid-cols-12 gap-6 items-end">
+    <div className="md:col-span-8">
+      <h1 className="font-display font-black text-ivory leading-[0.9] tracking-tightest text-balance">
+        <motion.span
+          className="block text-[10vw] md:text-7xl lg:text-8xl"
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex items-center gap-3 mt-4"
+          transition={{ duration: 0.9, delay: 0.3 }}
         >
-          <span className="w-12 h-px bg-chartreuse" />
-          <span className="text-xs tracking-[0.3em] text-chartreuse uppercase font-medium">Engineered to Secure</span>
-        </motion.div>
+          STRAP.
+        </motion.span>
 
-        <div className="flex-1" />
-
-        <div className="grid md:grid-cols-12 gap-6 items-end">
-          <div className="md:col-span-8">
-            <h1 className="font-display font-900 text-ivory leading-[0.85] tracking-tightest text-balance">
-              <motion.span
-  className="block text-[13vw] md:text-[8rem] lg:text-[10rem]"
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.9, delay: 0.3 }}
->
-  STRAP.
-</motion.span>
-              <motion.span
-  className="block text-[13vw] md:text-[8rem] lg:text-[10rem] text-chartreuse"
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.9, delay: 0.45 }}
->
-  SEAL.
-</motion.span>
-              <motion.span
-  className="block text-[13vw] md:text-[8rem] lg:text-[10rem] text-silver-300"
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.9, delay: 0.6 }}
->
-  SECURE.
-</motion.span>
-            </h1>
-          </div>
-          <motion.div
-            className="md:col-span-4 md:pb-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.9 }}
-          >
-            <p className="text-silver-300 text-base md:text-lg max-w-xs leading-relaxed">
-              Industrial packaging straps and seals engineered for the world's toughest supply chains.
-            </p>
-            <p className="mt-4 text-xs tracking-[0.2em] text-silver-400 uppercase">
-              Vikash Pack — Since 1998
-            </p>
-          </motion.div>
-        </div>
-
-        <motion.div
-          className="flex items-center justify-between mt-10 pointer-events-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.1 }}
+        <motion.span
+          className="block text-[10vw] md:text-7xl lg:text-8xl text-chartreuse"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.45 }}
         >
-          <a href="#worlds" className="group flex items-center gap-3 text-silver-300 hover:text-chartreuse transition-colors">
-            <div className="w-10 h-10 rounded-full border border-silver-500 group-hover:border-chartreuse group-hover:bg-chartreuse/10 flex items-center justify-center transition-all">
-              <ArrowDown className="w-4 h-4 group-hover:animate-bounce" />
-            </div>
-            <span className="text-xs tracking-[0.2em] uppercase">Scroll to explore</span>
-          </a>
-          <div className="hidden md:flex gap-8 text-xs tracking-[0.15em] uppercase text-silver-400">
-            <span>PET / PP / Steel</span>
-            <span className="w-px h-3 bg-silver-500" />
-            <span>ISO 9001 Process</span>
-          </div>
-        </motion.div>
-      </div>
-    </section>
+          SEAL.
+        </motion.span>
+
+        <motion.span
+          className="block text-[10vw] md:text-7xl lg:text-8xl text-silver-300"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.6 }}
+        >
+          SECURE.
+        </motion.span>
+      </h1>
+    </div>
+ 
+        
+          
+<motion.div
+  className="md:col-span-4 md:pb-4"
+  initial={{ opacity: 0, x: 20 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, delay: 0.9 }}
+>
+  {/* Description */}
+  <div className="relative max-w-sm border-l-2 border-chartreuse/70 pl-5">
+    <span className="mb-3 block font-body text-[10px] font-bold uppercase tracking-[0.25em] text-chartreuse">
+      Packaging. Perfected.
+    </span>
+
+    <p className="font-body text-sm leading-7 text-ivory/75 md:text-base">
+      Industrial packaging straps and security seals, designed to keep
+      products protected and supply chains moving.
+    </p>
+  </div>
+
+  {/* Company signature */}
+  <div className="mt-6 flex flex-wrap items-center gap-3 pl-5">
+    <span className="font-display text-sm font-semibold tracking-wide text-ivory">
+      VIKASH PACK
+    </span>
+
+    <span className="h-1 w-1 rounded-full bg-coral" />
+
+    <span className="font-body text-[10px] uppercase tracking-[0.18em] text-silver-400">
+      Since 1998
+    </span>
+  </div>
+</motion.div>
+</div>
+
+{/* Bottom navigation strip */}
+<motion.div
+  className="pointer-events-auto mt-10 flex flex-col gap-6 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between"
+  initial={{ opacity: 0, y: 12 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 1.1 }}
+>
+  {/* Scroll cue */}
+  <a
+    href="#worlds"
+    className="group flex w-fit items-center gap-4"
+  >
+    <span className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-white/20 transition-all duration-300 group-hover:border-chartreuse group-hover:bg-chartreuse group-hover:text-plum">
+      <ArrowDown className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1" />
+    </span>
+
+    <span className="flex flex-col gap-1">
+      <span className="font-body text-[9px] font-semibold uppercase tracking-[0.24em] text-silver-400">
+        Discover more
+      </span>
+      <span className="font-display text-sm font-semibold uppercase tracking-wide text-ivory transition-colors group-hover:text-chartreuse">
+        Explore our world
+      </span>
+    </span>
+  </a>
+
+  {/* Technical details */}
+  <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+    <div className="flex items-center gap-2">
+      <span className="h-1.5 w-1.5 rounded-full bg-chartreuse" />
+      <span className="font-body text-[10px] font-medium tracking-[0.12em] text-silver-300">
+        PET / PP / STEEL
+      </span>
+    </div>
+
+    <span className="hidden h-4 w-px bg-white/15 sm:block" />
+
+    <div className="flex items-center gap-2">
+      <span className="flex h-5 w-5 items-center justify-center rounded-full border border-chartreuse/40 text-[9px] font-bold text-chartreuse">
+        Q
+      </span>
+      <span className="font-body text-[10px] font-medium tracking-[0.12em] text-silver-300">
+        ISO 9001 PROCESS
+      </span>
+    </div>
+  </div>
+</motion.div>
+</div>
+</section>
+
   );
 }

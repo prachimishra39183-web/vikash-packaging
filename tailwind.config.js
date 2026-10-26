@@ -1,4 +1,8 @@
+
+
+
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -46,10 +50,16 @@ export default {
           500: '#6E7178',
         },
       },
-      fontFamily: {
-        display: ['Archivo', 'system-ui', 'sans-serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-      },
+      
+
+fontFamily: {
+  display: ['Manrope', 'Arial', 'sans-serif'],
+  editorial: ['Playfair Display', 'Georgia', 'serif'],
+  body: ['Inter', 'Arial', 'sans-serif'],
+  sans: ['Inter', 'Arial', 'sans-serif'],
+},
+
+
       letterSpacing: {
         tightest: '-0.04em',
         tighter: '-0.03em',

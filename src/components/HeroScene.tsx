@@ -22,9 +22,7 @@ export default function HeroScene() {
       <div className="pointer-events-none absolute -bottom-16 -left-12 h-48 w-48 rounded-full bg-[#D6FF45]/15 blur-3xl" />
 
       {/* Small label */}
-      <div className="absolute bottom-5 left-5 rounded-full border border-white/20 bg-black/35 px-4 py-2 text-xs font-medium tracking-wide text-white backdrop-blur-md sm:bottom-7 sm:left-7">
-        INDUSTRIAL PACKAGING · BUILT TO PROTECT
-      </div>
+      
     </div>
   );
 }

@@ -390,7 +390,7 @@ export default function Enquiry() {
                       />
                     </button>
 
-                    <p className="text-center text-[11px] leading-5 text-white/30">
+                    <p className="text-center text-[11px] leading-5 text-white/90">
                       Your details are used to respond to this enquiry.
                     </p>
                   </form>

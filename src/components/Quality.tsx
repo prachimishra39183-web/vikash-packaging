@@ -354,10 +354,7 @@ export default function Quality() {
               </div>
             </div>
 
-            <p className="mt-3 text-[10px] leading-5 text-white/35">
-              Technical values should be confirmed against the relevant
-              product specifications before publication.
-            </p>
+          
           </div>
         </div>
       </div>

@@ -168,9 +168,9 @@ export default function Hero() {
         >
           {/* Scroll cue */}
           <a href="#worlds" className="group flex w-fit items-center gap-4">
-            <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-black/25 text-black transition-all duration-300 group-hover:border-chartreuse group-hover:bg-chartreuse group-hover:text-plum">
-              <ArrowDown className="h-4 w-4 text-chartreuse transition-transform duration-300 group-hover:translate-y-1 group-hover:text-plum" />
-            </span>
+           <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-black/25 bg-black text-black transition-all duration-300 group-hover:border-chartreuse group-hover:bg-chartreuse group-hover:text-plum">
+  <ArrowDown className="h-4 w-4 text-chartreuse transition-transform duration-300 group-hover:translate-y-1 group-hover:text-plum" />
+</span>
 
             <span className="flex flex-col gap-1">
               <span className="font-body text-[15px] font-bold uppercase tracking-[0.44em] text-red-400">

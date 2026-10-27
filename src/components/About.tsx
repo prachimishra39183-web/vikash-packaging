@@ -265,26 +265,28 @@ export default function About() {
 
   {/* 3D frame */}
   <motion.div
-    className="relative mx-auto w-[94%] overflow-hidden rounded-[20px] border border-white/20 bg-[#123D35] shadow-[0_24px_55px_rgba(18,61,53,0.28)] sm:rounded-[26px]"
-    style={{ transformStyle: "preserve-3d" }}
-    initial={{ rotateY: -7, rotateX: 3 }}
-    whileInView={{ rotateY: 0, rotateX: 0 }}
-    whileHover={{ rotateY: 2, rotateX: -1, scale: 1.015 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.7, ease: "easeOut" }}
-  >
+  className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-[24px] border border-white/20 bg-[#123D35] shadow-[0_24px_55px_rgba(18,61,53,0.28)] sm:rounded-[28px]"
+  style={{ transformStyle: "preserve-3d" }}
+  initial={{ rotateY: -7, rotateX: 3 }}
+  whileInView={{ rotateY: 0, rotateX: 0 }}
+  whileHover={{ rotateY: 2, rotateX: -1, scale: 1.015 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.7, ease: "easeOut" }}
+>
+
    {/* Compact video */}
-<div className="relative h-[260px] sm:h-[320px] md:h-[380px]">
-  <video
-    className="absolute inset-0 h-full w-full object-cover"
-    src="/time.mp4"
-    autoPlay
-    muted
-    loop
-    playsInline
-    preload="metadata"
-    poster={IMAGES.workerFactory}
-  />
+ <div className="relative h-[300px] sm:h-[380px] md:h-[440px] lg:h-[480px]">
+    <video
+      className="absolute inset-0 h-full w-full object-cover"
+      src="/time.mp4"
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      poster={IMAGES.workerFactory}
+    />
+
       {/* Cinematic overlays */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#09251F]/80 via-[#09251F]/30 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#09251F]/75 via-transparent to-[#09251F]/15" />

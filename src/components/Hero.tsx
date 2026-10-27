@@ -168,15 +168,15 @@ export default function Hero() {
         >
           {/* Scroll cue */}
           <a href="#worlds" className="group flex w-fit items-center gap-4">
-            <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-white/25 text-ivory transition-all duration-300 group-hover:border-chartreuse group-hover:bg-chartreuse group-hover:text-plum">
-              <ArrowDown className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1" />
+            <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-black/25 text-black transition-all duration-300 group-hover:border-chartreuse group-hover:bg-chartreuse group-hover:text-plum">
+              <ArrowDown className="h-4 w-4 text-chartreuse transition-transform duration-300 group-hover:translate-y-1 group-hover:text-plum" />
             </span>
 
             <span className="flex flex-col gap-1">
-              <span className="font-body text-[9px] font-semibold uppercase tracking-[0.24em] text-silver-400">
+              <span className="font-body text-[15px] font-bold uppercase tracking-[0.44em] text-red-400">
                 Discover more
               </span>
-              <span className="font-display text-sm font-semibold uppercase tracking-wide text-ivory transition-colors group-hover:text-chartreuse">
+              <span className="font-display text-sm font-semibold uppercase tracking-wide text-white transition-colors group-hover:text-chartreuse">
                 Explore our world
               </span>
             </span>

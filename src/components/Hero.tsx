@@ -14,6 +14,8 @@ export default function Hero() {
     
 {/* Decorative hero background */}
 <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-b from-plum via-plum/90 to-ivory-100" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-chartreuse/8 rounded-full blur-[120px]" />
   {/* Ambient corner glows */}
   <div className="absolute -left-32 -top-24 h-80 w-80 rounded-full bg-chartreuse/10 blur-[100px]" />
   <div className="absolute -right-24 top-20 h-96 w-96 rounded-full bg-coral/15 blur-[110px]" />
@@ -84,7 +86,7 @@ export default function Hero() {
     <div className="md:col-span-8">
       <h1 className="font-display font-black text-ivory leading-[0.9] tracking-tightest text-balance">
         <motion.span
-          className="block text-[10vw] md:text-7xl lg:text-8xl"
+          className="block text-[10vw] md:text-4xl lg:text-8xl"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3 }}

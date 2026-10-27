@@ -91,9 +91,33 @@ export default function About() {
       id="about"
       className="relative isolate overflow-hidden bg-[#F5F7F2] py-14 md:py-20"
     >
+    {/* Soft light rays */}
+<div className="absolute inset-0 overflow-hidden pointer-events-none">
+  <div className="absolute -top-40 -left-20 h-[600px] w-[600px]
+    rounded-full bg-white/90 blur-[100px]" />
+
+  <div className="absolute top-0 right-[-10%] h-[650px] w-[450px]
+    bg-[#393936]/30 blur-[100px]
+    [transform:rotate(-35deg)]" />
+
+  <div className="absolute top-[20%] left-[25%] h-[500px] w-[300px]
+    bg-[#D8D5CE]/50 blur-[100px]
+    [transform:rotate(35deg)]" />
+
+  <div className="absolute bottom-[-15%] right-[-10%] h-[550px] w-[550px]
+    rounded-full bg-[#E9E0D0]/80 blur-[110px]" />
+</div>
+
+{/* White, charcoal and cream base */}
+<div className="absolute inset-0
+  bg-[linear-gradient(135deg,#FFFFFF_0%,#F4F3F0_18%,#292927_42%,#55534E_58%,#D6D1C7_76%,#F5F0E6_100%)]" />
+
+{/* Subtle white and cream rays */}
+<div className="absolute inset-0
+  bg-[conic-gradient(from_225deg_at_50%_0%,transparent_0deg,#FFFFFF_35deg,transparent_65deg,#E9E2D6_100deg,transparent_130deg)] opacity-70" />
+      
       {/* Background accents */}
-      <div className="pointer-events-none absolute -right-32 top-20 h-72 w-72 rounded-full bg-[#18A999]/10 blur-3xl" />
-      <div className="pointer-events-none absolute -left-32 bottom-40 h-72 w-72 rounded-full bg-[#FF9F43]/10 blur-3xl" />
+      
 
       <div className="relative mx-auto max-w-[1280px] px-5 md:px-8">
         {/* About introduction */}
@@ -150,7 +174,7 @@ export default function About() {
 
           {/* Factory image */}
          <motion.div
-  className="relative mx-auto w-full max-w-[380px] lg:col-span-5 lg:max-w-none"
+  className="relative mx-auto w-full max-w-[320px] lg:col-span-5 lg:max-w-[360px]"
   initial={{ opacity: 0, x: 20 }}
   whileInView={{ opacity: 1, x: 0 }}
   viewport={{ once: true }}
@@ -198,145 +222,135 @@ export default function About() {
         </div>
 
         {/* Company timeline */}
-        <section className="relative border-t border-[#123D35]/10 py-12 md:py-16">
-          <div className="pointer-events-none absolute -right-20 top-10 h-56 w-56 rounded-full bg-[#18A999]/10 blur-3xl" />
+        {/* Company timeline — Ivory theme */}
+    <section className="relative isolate left-1/2 w-screen -translate-x-1/2 overflow-hidden border-t border-[#D9D2C6] bg-[#F2EEE6] py-12 text-[#292D2A] md:py-16">
+  
 
+  {/* Soft ivory glow */}
+           <div className="pointer-events-none absolute -right-20 top-10 h-56 w-56 rounded-full bg-[#E5DED1]/50 blur-3xl" />
+          
           {/* Timeline heading */}
-          <div className="relative mb-8 flex flex-col justify-between gap-5 md:mb-10 md:flex-row md:items-end">
-            <div>
-              <div className="mb-4 flex items-center gap-3">
-                <span className="h-1 w-8 rounded-full bg-[#18A999]" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#08796D] sm:text-xs">
-                  Our journey · Since day one
-                </span>
-              </div>
+          {/* Timeline heading */}
+<div className="relative z-10 mb-10 flex w-full flex-col justify-between gap-6 md:mb-12 md:flex-row md:items-end">
 
-              <h3 className="font-display text-3xl font-extrabold leading-tight tracking-tight text-[#123D35] sm:text-4xl md:text-5xl">
-                BUILT THROUGH
-                <br />
-                <span className="text-[#18A999]">EXPERIENCE.</span>
-              </h3>
+  {/* Left: Heading content */}
+  <div className="max-w-2xl">
+    <div className="mb-5 flex items-center gap-3">
+      <span className="h-1 w-8 shrink-0 rounded-full bg-[#8B9182]" />
+      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#65685F] sm:text-xs">
+        Our journey · Since day one
+      </span>
+    </div>
 
-              <p className="mt-3 max-w-md text-sm leading-6 text-[#52665A]">
-                From our first steps to stronger packaging solutions, every
-                chapter has shaped who we are today.
-              </p>
-            </div>
+    <h3 className="font-display text-3xl font-extrabold leading-[1.08] tracking-tight text-[#292D2A] sm:text-4xl md:text-5xl lg:text-6xl">
+      BUILT THROUGH
+      <br />
+      <span className="text-[#777D70]">EXPERIENCE.</span>
+    </h3>
 
-            <div className="flex w-fit items-center gap-3 rounded-xl border border-[#123D35]/10 bg-white px-4 py-3 shadow-sm">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#D6FF45] text-[#123D35]">
-                <CalendarDays size={17} />
-              </span>
-              <div>
-                <p className="font-display text-sm font-bold text-[#123D35]">
-                  ALWAYS MOVING
-                </p>
-                <p className="mt-0.5 text-[11px] text-[#607167]">
-                  One milestone at a time
-                </p>
-              </div>
-            </div>
-          </div>
+  </div>
+
+  {/* Right: Timeline badge */}
+  <div className="flex w-fit shrink-0 items-center gap-3 rounded-xl border border-[#D9D2C6] bg-[#F8F5EF] px-4 py-3">
+    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#E5DED1] text-[#292D2A]">
+      <CalendarDays size={18} />
+    </span>
+
+    <div>
+      <p className="font-display text-sm font-bold text-[#292D2A]">
+        ALWAYS MOVING
+      </p>
+      <p className="mt-1 text-[11px] text-[#77776F]">
+        One milestone at a time
+      </p>
+    </div>
+  </div>
+
+</div>
 
           {/* Aligned timeline cards */}
 
 {/* Industrial journey video */}
+
+{/* Floating industrial journey video */}
+
+{/* Floating industrial journey video */}
 <motion.div
-  className="relative mt-8 [perspective:1400px]"
+  className="relative mx-auto mt-10 w-full max-w-6xl"
   initial={{ opacity: 0, y: 35 }}
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true, amount: 0.2 }}
   transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
 >
-  {/* Teal ambient glow */}
-  <div className="absolute -inset-3 rounded-[32px] bg-gradient-to-r from-[#18A999]/25 via-[#D6FF45]/15 to-[#18A999]/25 blur-xl" />
-
-  {/* Video container */}
-  
-<motion.div
-  className="relative mx-auto mt-10 w-full max-w-4xl [perspective:1200px]"
-  initial={{ opacity: 0, y: 25 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.2 }}
-  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
->
-  {/* Ambient 3D glow */}
-  <div className="absolute -inset-3 rounded-[28px] bg-gradient-to-r from-[#18A999]/20 via-[#D6FF45]/15 to-[#18A999]/20 blur-2xl" />
-
-  {/* 3D frame */}
   <motion.div
-  className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-[24px] border border-white/20 bg-[#123D35] shadow-[0_24px_55px_rgba(18,61,53,0.28)] sm:rounded-[28px]"
-  style={{ transformStyle: "preserve-3d" }}
-  initial={{ rotateY: -7, rotateX: 3 }}
-  whileInView={{ rotateY: 0, rotateX: 0 }}
-  whileHover={{ rotateY: 2, rotateX: -1, scale: 1.015 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.7, ease: "easeOut" }}
->
+    className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl"
+    animate={{
+      y: [0, -8, 0],
+    }}
+    transition={{
+      duration: 5,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    whileHover={{ scale: 1.01 }}
+  >
+    {/* Video blends directly into the page */}
+    <div className="relative h-[400px] sm:h-[400px] md:h-[480px] lg:h-[500px]">
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        src="/time.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster={IMAGES.workerFactory}
+      />
 
-   {/* Compact video */}
- <div className="relative h-[300px] sm:h-[380px] md:h-[440px] lg:h-[480px]">
-    <video
-      className="absolute inset-0 h-full w-full object-cover"
-      src="/time.mp4"
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="metadata"
-      poster={IMAGES.workerFactory}
-    />
+      {/* Blend video into the website */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#123D35]/55 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#123D35]/65 via-transparent to-transparent" />
 
-      {/* Cinematic overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#09251F]/80 via-[#09251F]/30 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#09251F]/75 via-transparent to-[#09251F]/15" />
-
-      {/* Top label */}
-      <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/20 bg-[#123D35]/65 px-3 py-2 backdrop-blur-md sm:left-6 sm:top-6">
+      {/* Minimal label */}
+      <div className="absolute left-5 top-5 flex items-center gap-2 sm:left-8 sm:top-8">
         <span className="h-2 w-2 rounded-full bg-[#D6FF45]" />
-        <span className="text-[9px] font-bold uppercase tracking-[0.18em] text-white sm:text-[10px]">
+        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white sm:text-xs">
           Our journey · Since 1998
         </span>
       </div>
 
-      {/* Video message */}
+      {/* Text directly over the video */}
+      <div className="absolute bottom-7 left-5 max-w-xl sm:bottom-10 sm:left-10 md:bottom-12 md:left-12">
+        <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#D6FF45]">
+          Built on experience
+        </p>
+
       
-      {/* Corner accent */}
-      <div className="absolute right-4 top-4 h-8 w-8 rounded-tr-xl border-r-2 border-t-2 border-[#D6FF45]/80 sm:right-6 sm:top-6" />
+
+        <p className="mt-3 max-w-md text-xs leading-relaxed text-white/85 sm:text-sm">
+          Decades of commitment to quality, reliability and better packaging.
+        </p>
+      </div>
     </div>
   </motion.div>
+</motion.div>
 
-  {/* 3D base / depth effect */}
-  <div className="mx-auto mt-2 h-3 w-[82%] rounded-b-2xl bg-gradient-to-r from-[#123D35]/5 via-[#123D35]/20 to-[#123D35]/5 blur-[2px]" />
+  
 
-  {/* Caption */}
-  <div className="mt-4 flex flex-wrap items-center justify-between gap-2 px-2 text-[9px] font-semibold uppercase tracking-[0.16em] text-[#52665A] sm:text-[10px]">
-    <span>Quality in every detail</span>
-    <span className="flex items-center gap-2">
-      <span className="h-1.5 w-1.5 rounded-full bg-[#18A999]" />
-      Moving forward, together
+{/* Timeline signature */}
+<div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-[#123D35]/10 pt-5">
+  <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#607167] sm:text-xs">
+    Experience builds trust. Quality builds the future.
+  </p>
+
+  <div className="flex items-center gap-2">
+    <span className="h-2 w-2 rounded-full bg-[#18A999]" />
+    <span className="text-[9px] font-bold uppercase tracking-widest text-[#123D35]">
+      The journey continues
     </span>
   </div>
-</motion.div>
+</div>
 
-</motion.div>
-
-
-       
-
-          {/* Timeline signature */}
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-[#123D35]/10 pt-5">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#607167] sm:text-xs">
-              Experience builds trust. Quality builds the future.
-            </p>
-
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-[#18A999]" />
-              <span className="text-[9px] font-bold uppercase tracking-widest text-[#123D35]">
-                The journey continues
-              </span>
-            </div>
-          </div>
         </section>
       </div>
     </section>

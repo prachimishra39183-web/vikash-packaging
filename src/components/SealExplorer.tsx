@@ -66,6 +66,7 @@ export default function SealExplorer() {
 
   return (
     <section id="seals" className="relative bg-ivory py-20 md:py-32 overflow-hidden grain">
+       
       {/* showroom floor gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-ivory-50 via-ivory to-ivory-200" />
       <div

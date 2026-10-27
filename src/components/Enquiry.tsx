@@ -1,140 +1,409 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Check, ArrowRight } from 'lucide-react';
+import {
+  ArrowRight,
+  Check,
+  CheckCircle2,
+  Package,
+  ShieldCheck,
+  Truck,
+  Sparkles,
+} from 'lucide-react';
 
-const PRODUCTS = ['PET Strap', 'PP Strap', 'Steel Strap', 'Silver Seal', 'White-Coated Seal', 'Drum Seal', 'Resin Seal', 'GI Seal'];
+const PRODUCTS = [
+  'PET Strap',
+  'PP Strap',
+  'Steel Strap',
+  'Silver Seal',
+  'White-Coated Seal',
+  'Drum Seal',
+  'Resin Seal',
+  'GI Seal',
+];
+
+const BENEFITS = [
+  {
+    icon: ShieldCheck,
+    title: 'The right specification',
+    description: 'Solutions matched to your load.',
+  },
+  {
+    icon: Package,
+    title: 'Volume-based pricing',
+    description: 'Options tailored to your quantity.',
+  },
+  {
+    icon: Truck,
+    title: 'Reliable dispatch',
+    description: 'Support for your delivery needs.',
+  },
+];
+
+const inputClass =
+  'w-full rounded-xl border border-white/10 bg-white/[0.045] px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-white/30 hover:border-white/20 focus:border-chartreuse/70 focus:bg-white/[0.07]';
 
 export default function Enquiry() {
   const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ name: '', company: '', email: '', product: '', quantity: '', message: '' });
+  const [form, setForm] = useState({
+    name: '',
+    company: '',
+    email: '',
+    product: '',
+    quantity: '',
+    message: '',
+  });
 
-  const update = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
+  const update = (key: string, value: string) => {
+    setForm((current) => ({ ...current, [key]: value }));
+  };
 
-  const submit = (e: React.FormEvent) => {
+  const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Connect your enquiry API/email service here before
+    // treating this as a real submitted enquiry.
     setSent(true);
   };
 
   return (
-    <section id="enquiry" className="relative overflow-hidden">
-      {/* dark-to-light transition */}
-      <div className="absolute inset-0 bg-gradient-to-b from-plum via-plum/90 to-ivory-100" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-chartreuse/8 rounded-full blur-[120px]" />
+    <section
+      id="enquiry"
+      className="relative isolate overflow-hidden bg-[#17151D] text-white"
+    >
+      {/* Background atmosphere */}
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+  <div className="absolute -top-40 -left-20 h-[600px] w-[600px]
+    rounded-full bg-white/90 blur-[100px]" />
 
-      <div className="relative max-w-[1600px] mx-auto px-6 md:px-10 py-24 md:py-32">
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
-          {/* Left — headline */}
-          <div className="lg:col-span-6">
-            <span className="text-xs tracking-[0.3em] text-chartreuse uppercase">Request a Quote</span>
-            <h2 className="font-display font-900 text-ivory text-5xl md:text-7xl lg:text-8xl mt-3 tracking-tighter leading-[0.88]">
-              Let's build <br /> your <span className="text-chartreuse">load</span> plan.
+  <div className="absolute top-0 right-[-10%] h-[650px] w-[450px]
+    bg-[#393936]/30 blur-[100px]
+    [transform:rotate(-35deg)]" />
+
+  <div className="absolute top-[20%] left-[25%] h-[500px] w-[300px]
+    bg-[#D8D5CE]/50 blur-[100px]
+    [transform:rotate(35deg)]" />
+
+  <div className="absolute bottom-[-15%] right-[-10%] h-[550px] w-[550px]
+    rounded-full bg-[#E9E0D0]/80 blur-[110px]" />
+</div>
+
+{/* White, charcoal and cream base */}
+<div className="absolute inset-0
+  bg-[linear-gradient(135deg,#FFFFFF_0%,#F4F3F0_18%,#292927_42%,#55534E_58%,#D6D1C7_76%,#F5F0E6_100%)]" />
+
+{/* Subtle white and cream rays */}
+<div className="absolute inset-0
+  bg-[conic-gradient(from_225deg_at_50%_0%,transparent_0deg,#FFFFFF_35deg,transparent_65deg,#E9E2D6_100deg,transparent_130deg)] opacity-70" />
+
+      <div className="relative mx-auto max-w-[1440px] px-5 py-16 sm:px-8 md:py-24 lg:px-12 lg:py-28">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Left content */}
+          <motion.div
+            className="lg:col-span-5"
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7 }}
+          >
+            
+
+            <h2 className="max-w-xl font-display text-4xl font-black leading-[0.98] tracking-[-0.055em] text-black sm:text-5xl md:text-6xl xl:text-7xl">
+              Your load.
+              <br />
+              Your needs.
+              <br />
+              <span className="text-chartreuse">Our solution.</span>
             </h2>
-            <p className="text-silver-300 leading-relaxed mt-8 max-w-md">
-              Tell us what you're securing and how far it's travelling. We'll specify the right strap, the right seal, and the right quantities.
+
+            <p className="mt-6 max-w-md text-sm leading-7 text-white/90 sm:text-base">
+              Tell us about your packaging requirements. We’ll help you explore
+              the right straps, seals and quantities for your operation.
             </p>
 
-            <div className="mt-12 space-y-4">
-              {['Direct technical consultation', 'Volume pricing on request', 'Nationwide dispatch'].map((p) => (
-                <div key={p} className="flex items-center gap-3 text-silver-200">
-                  <div className="w-5 h-5 rounded-full bg-chartreuse/20 flex items-center justify-center">
-                    <Check className="w-3 h-3 text-chartreuse" />
-                  </div>
-                  <span className="text-sm">{p}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+            <div className="mt-9 space-y-4">
+              {BENEFITS.map((benefit, index) => {
+                const Icon = benefit.icon;
 
-          {/* Right — form */}
-          <div className="lg:col-span-6">
-            <div className="bg-ivory-50/95 backdrop-blur-xl rounded-sm p-8 md:p-10 border border-plum/8 shadow-[0_30px_80px_-20px_rgba(23,18,31,0.4)]">
+                return (
+                  <motion.div
+                    key={benefit.title}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.12, duration: 0.45 }}
+                    className="group flex items-center gap-4"
+                  >
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/900 bg-white/[0.045] transition-colors group-hover:border-chartreuse/40 group-hover:bg-chartreuse/10">
+                      <Icon
+                        size={20}
+                        className="text-chartreuse"
+                        strokeWidth={1.6}
+                      />
+                    </div>
+
+                    <div>
+                      <h3 className="text-sm font-semibold text-red">
+                        {benefit.title}
+                      </h3>
+                      <p className="mt-1 text-xs text-white/90">
+                        {benefit.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            <div className="mt-10 flex items-center gap-3 border-t border-white/10 pt-6">
+              <div className="flex -space-x-2">
+                {['P', 'S', 'V'].map((letter) => (
+                  <div
+                    key={letter}
+                    className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#17151D] bg-[#302D36] text-xs font-bold text-chartreuse"
+                  >
+                    {letter}
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs leading-5 text-white/45">
+                Built around your packaging needs.
+                <br />
+                <span className="text-white/70">
+                  Let's find the right fit.
+                </span>
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Right enquiry card */}
+          <motion.div
+            className="lg:col-span-7"
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, delay: 0.12 }}
+          >
+            <div className="relative rounded-[28px] border border-white/[0.12] bg-[#24212B]/90 p-5 shadow-[0_30px_100px_-30px_rgba(0,0,0,0.8)] backdrop-blur-2xl sm:p-8 md:p-10">
+              {/* Card accent */}
+              <div className="absolute left-8 right-8 top-0 h-px bg-gradient-to-r from-transparent via-chartreuse/70 to-transparent" />
+
               {sent ? (
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 0.97 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="py-16 text-center"
+                  className="flex min-h-[460px] flex-col items-center justify-center px-4 py-12 text-center"
                 >
-                  <div className="w-16 h-16 mx-auto rounded-full bg-chartreuse flex items-center justify-center">
-                    <Check className="w-8 h-8 text-plum" />
+                  <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-chartreuse text-[#17151D] shadow-[0_0_50px_rgba(214,255,69,0.15)]">
+                    <CheckCircle2 size={38} />
                   </div>
-                  <h3 className="font-display font-800 text-plum text-3xl mt-6 tracking-tighter">Enquiry received</h3>
-                  <p className="text-plum/60 mt-3 max-w-sm mx-auto">
-                    Our team will respond with specifications and pricing within one business day.
+
+                  <h3 className="mt-7 font-display text-3xl font-bold tracking-tight text-white">
+                    Thank you!
+                  </h3>
+
+                  <p className="mt-3 max-w-sm text-sm leading-6 text-white/50">
+                    Your form has been completed. Connect this form to your
+                    enquiry service so your team can receive the details.
                   </p>
+
+                  <button
+                    type="button"
+                    onClick={() => setSent(false)}
+                    className="mt-7 rounded-full border border-white/15 px-5 py-2.5 text-sm text-white/75 transition hover:border-chartreuse/50 hover:text-chartreuse"
+                  >
+                    Send another enquiry
+                  </button>
                 </motion.div>
               ) : (
-                <form onSubmit={submit} className="space-y-5">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <Field label="Name" value={form.name} onChange={(v) => update('name', v)} required />
-                    <Field label="Company" value={form.company} onChange={(v) => update('company', v)} />
-                  </div>
-                  <Field label="Email" type="email" value={form.email} onChange={(v) => update('email', v)} required />
+                <>
+                  {/* Form heading */}
+                  <div className="mb-8 flex items-start justify-between gap-4">
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-chartreuse">
+                        Quote request
+                      </p>
+                      <h3 className="mt-2 font-display text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                        Tell us what you need.
+                      </h3>
+                      <p className="mt-2 text-sm text-white/40">
+                        Share a few details to get started.
+                      </p>
+                    </div>
 
-                  <div>
-                    <label className="text-[10px] tracking-[0.2em] text-plum/50 uppercase">Product</label>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {PRODUCTS.map((p) => (
-                        <button
-                          key={p}
-                          type="button"
-                          onClick={() => update('product', p)}
-                          className={`px-3 py-1.5 text-xs rounded-full border transition-all ${
-                            form.product === p
-                              ? 'bg-plum text-ivory border-plum'
-                              : 'bg-transparent text-plum/60 border-plum/15 hover:border-plum/40'
-                          }`}
-                        >
-                          {p}
-                        </button>
-                      ))}
+                    <div className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-chartreuse/20 bg-chartreuse/[0.08] sm:flex">
+                      <Package size={23} className="text-chartreuse" />
                     </div>
                   </div>
 
-                  <Field label="Quantity (approx.)" value={form.quantity} onChange={(v) => update('quantity', v)} />
+                  <form onSubmit={submit} className="space-y-6">
+                    {/* Step 01 */}
+                    <div>
+                      <div className="mb-4 flex items-center gap-3">
+                        <span className="text-[10px] font-bold tracking-[0.15em] text-chartreuse">
+                          01
+                        </span>
+                        <span className="h-px flex-1 bg-white/10" />
+                        <span className="text-[10px] uppercase tracking-[0.15em] text-white/35">
+                          Your details
+                        </span>
+                      </div>
 
-                  <div>
-                    <label className="text-[10px] tracking-[0.2em] text-plum/50 uppercase">Requirements</label>
-                    <textarea
-                      value={form.message}
-                      onChange={(e) => update('message', e.target.value)}
-                      rows={3}
-                      className="w-full mt-2 bg-transparent border-b border-plum/15 focus:border-coral outline-none py-2 text-plum placeholder:text-plum/30 transition-colors"
-                      placeholder="Load type, dimensions, destination..."
-                    />
-                  </div>
+                      <div className="grid gap-4 sm:grid-cols-2">
+                        <div>
+                          <label
+                            htmlFor="enquiry-name"
+                            className="mb-2 block text-xs font-medium text-white/65"
+                          >
+                            Full name <span className="text-chartreuse">*</span>
+                          </label>
+                          <input
+                            id="enquiry-name"
+                            className={inputClass}
+                            placeholder="Your name"
+                            autoComplete="name"
+                            value={form.name}
+                            onChange={(e) => update('name', e.target.value)}
+                            required
+                          />
+                        </div>
 
-                  <button
-                    type="submit"
-                    className="group w-full mt-4 bg-plum text-ivory py-4 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-coral transition-colors duration-300"
-                  >
-                    Send enquiry
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </form>
+                        <div>
+                          <label
+                            htmlFor="enquiry-company"
+                            className="mb-2 block text-xs font-medium text-white/65"
+                          >
+                            Company
+                          </label>
+                          <input
+                            id="enquiry-company"
+                            className={inputClass}
+                            placeholder="Company name"
+                            autoComplete="organization"
+                            value={form.company}
+                            onChange={(e) => update('company', e.target.value)}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="mt-4">
+                        <label
+                          htmlFor="enquiry-email"
+                          className="mb-2 block text-xs font-medium text-white/65"
+                        >
+                          Work email <span className="text-chartreuse">*</span>
+                        </label>
+                        <input
+                          id="enquiry-email"
+                          type="email"
+                          className={inputClass}
+                          placeholder="you@company.com"
+                          autoComplete="email"
+                          value={form.email}
+                          onChange={(e) => update('email', e.target.value)}
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    {/* Step 02 */}
+                    <div>
+                      <div className="mb-4 flex items-center gap-3">
+                        <span className="text-[10px] font-bold tracking-[0.15em] text-chartreuse">
+                          02
+                        </span>
+                        <span className="h-px flex-1 bg-white/10" />
+                        <span className="text-[10px] uppercase tracking-[0.15em] text-white/35">
+                          Product requirements
+                        </span>
+                      </div>
+
+                      <p className="mb-3 text-xs font-medium text-white/65">
+                        Which product are you interested in?
+                      </p>
+
+                      <div className="flex flex-wrap gap-2">
+                        {PRODUCTS.map((product) => {
+                          const active = form.product === product;
+
+                          return (
+                            <button
+                              key={product}
+                              type="button"
+                              aria-pressed={active}
+                              onClick={() => update('product', active ? '' : product)}
+                              className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-2.5 text-xs transition-all duration-200 ${
+                                active
+                                  ? 'border-chartreuse bg-chartreuse text-[#17151D]'
+                                  : 'border-white/10 bg-white/[0.035] text-white/60 hover:border-white/30 hover:text-white'
+                              }`}
+                            >
+                              {active && <Check size={13} />}
+                              {product}
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      <div className="mt-4">
+                        <label
+                          htmlFor="enquiry-quantity"
+                          className="mb-2 block text-xs font-medium text-white/65"
+                        >
+                          Estimated quantity
+                        </label>
+                        <input
+                          id="enquiry-quantity"
+                          className={inputClass}
+                          placeholder="e.g. 500 rolls or 2,000 seals"
+                          value={form.quantity}
+                          onChange={(e) => update('quantity', e.target.value)}
+                        />
+                      </div>
+
+                      <div className="mt-4">
+                        <label
+                          htmlFor="enquiry-message"
+                          className="mb-2 block text-xs font-medium text-white/65"
+                        >
+                          Tell us more
+                        </label>
+                        <textarea
+                          id="enquiry-message"
+                          rows={3}
+                          className={`${inputClass} resize-y`}
+                          placeholder="Load type, dimensions, delivery location..."
+                          value={form.message}
+                          onChange={(e) => update('message', e.target.value)}
+                        />
+                      </div>
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="group flex w-full items-center justify-center gap-3 rounded-xl bg-chartreuse px-6 py-4 text-sm font-bold text-[#17151D] transition duration-300 hover:-translate-y-0.5 hover:bg-[#E5FF83] hover:shadow-[0_12px_35px_-12px_rgba(214,255,69,0.45)]"
+                    >
+                      Request my quote
+                      <ArrowRight
+                        size={17}
+                        className="transition-transform duration-300 group-hover:translate-x-1"
+                      />
+                    </button>
+
+                    <p className="text-center text-[11px] leading-5 text-white/30">
+                      Your details are used to respond to this enquiry.
+                    </p>
+                  </form>
+                </>
               )}
             </div>
-          </div>
+
+            <p className="mt-5 text-center text-[10px] uppercase tracking-[0.18em] text-white/25">
+              Packaging solutions · Built for industry
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>
-  );
-}
-
-function Field({
-  label, value, onChange, type = 'text', required,
-}: { label: string; value: string; onChange: (v: string) => void; type?: string; required?: boolean }) {
-  return (
-    <div>
-      <label className="text-[10px] tracking-[0.2em] text-plum/50 uppercase">
-        {label}{required && <span className="text-coral">*</span>}
-      </label>
-      <input
-        type={type}
-        value={value}
-        required={required}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full mt-2 bg-transparent border-b border-plum/15 focus:border-coral outline-none py-2 text-plum placeholder:text-plum/30 transition-colors"
-      />
-    </div>
   );
 }

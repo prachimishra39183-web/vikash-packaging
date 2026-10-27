@@ -20,9 +20,9 @@ export default function Applications() {
       style={{ perspective: '1400px' }}
     >
       {/* Decorative background */}
-       <div className="absolute inset-0 bg-gradient-to-b from-plum via-plum/90 to-ivory-100" />
+       
+<div className="absolute inset-0 bg-gradient-to-b from-plum via-plum/90 to-ivory-100" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-chartreuse/8 rounded-full blur-[120px]" />
-
       <div className="relative mx-auto max-w-[1320px] px-5 md:px-10">
         {/* Section heading */}
         <div className="mb-10 flex flex-col gap-5 md:mb-14 md:flex-row md:items-end md:justify-between">

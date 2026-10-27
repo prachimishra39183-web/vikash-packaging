@@ -149,13 +149,24 @@ export default function About() {
           </motion.div>
 
           {/* Factory image */}
-          <motion.div
-            className="relative mx-auto w-full max-w-[380px] lg:col-span-5 lg:max-w-none"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
+         <motion.div
+  className="relative mx-auto w-full max-w-[380px] lg:col-span-5 lg:max-w-none"
+  initial={{ opacity: 0, x: 20 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{
+    opacity: { duration: 0.7 },
+    x: { duration: 0.7 },
+  }}
+  animate={{
+    y: [0, -8, 0],
+    rotateY: [0, 2, 0, -2, 0],
+  }}
+  style={{
+    transformStyle: 'preserve-3d',
+    perspective: 1000,
+  }}
+>
             <div className="absolute -inset-2 -rotate-2 rounded-2xl bg-[#18A999]/15" />
 
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border-4 border-white shadow-xl sm:aspect-[5/4] lg:aspect-[4/5]">
@@ -228,81 +239,88 @@ export default function About() {
           </div>
 
           {/* Aligned timeline cards */}
-          <div className="relative grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {TIMELINE.map((t, i) => {
-              const theme = THEMES[i];
 
-              return (
-                <motion.article
-                  key={t.year}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.15 }}
-                  transition={{ duration: 0.45, delay: i * 0.06 }}
-                  whileHover={{ y: -4 }}
-                  className={`group relative flex min-w-0 min-h-[230px] flex-col overflow-hidden rounded-2xl border ${theme.border} ${theme.bg} p-4 shadow-sm transition-shadow duration-300 hover:shadow-xl md:p-4`}
-                >
-                  {/* Decorative number */}
-                  <span
-                    className="pointer-events-none absolute -right-1 -top-2 font-display text-7xl font-black leading-none opacity-[0.06]"
-                    aria-hidden="true"
-                  >
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
+{/* Industrial journey video */}
+<motion.div
+  className="relative mt-8 [perspective:1400px]"
+  initial={{ opacity: 0, y: 35 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+>
+  {/* Teal ambient glow */}
+  <div className="absolute -inset-3 rounded-[32px] bg-gradient-to-r from-[#18A999]/25 via-[#D6FF45]/15 to-[#18A999]/25 blur-xl" />
 
-                  {/* Card header */}
-                  <div className="relative z-10 flex items-center justify-between gap-2">
-                    <span
-                      className={`rounded-full px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider ${theme.badge}`}
-                    >
-                      Chapter {String(i + 1).padStart(2, '0')}
-                    </span>
+  {/* Video container */}
+  
+<motion.div
+  className="relative mx-auto mt-10 w-full max-w-4xl [perspective:1200px]"
+  initial={{ opacity: 0, y: 25 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+>
+  {/* Ambient 3D glow */}
+  <div className="absolute -inset-3 rounded-[28px] bg-gradient-to-r from-[#18A999]/20 via-[#D6FF45]/15 to-[#18A999]/20 blur-2xl" />
 
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-current/15">
-                      <ArrowUpRight
-                        size={14}
-                        className="transition-transform duration-300 group-hover:rotate-45"
-                      />
-                    </span>
-                  </div>
+  {/* 3D frame */}
+  <motion.div
+    className="relative mx-auto w-[94%] overflow-hidden rounded-[20px] border border-white/20 bg-[#123D35] shadow-[0_24px_55px_rgba(18,61,53,0.28)] sm:rounded-[26px]"
+    style={{ transformStyle: "preserve-3d" }}
+    initial={{ rotateY: -7, rotateX: 3 }}
+    whileInView={{ rotateY: 0, rotateX: 0 }}
+    whileHover={{ rotateY: 2, rotateX: -1, scale: 1.015 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.7, ease: "easeOut" }}
+  >
+   {/* Compact video */}
+<div className="relative h-[260px] sm:h-[320px] md:h-[380px]">
+  <video
+    className="absolute inset-0 h-full w-full object-cover"
+    src="/time.mp4"
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="metadata"
+    poster={IMAGES.workerFactory}
+  />
+      {/* Cinematic overlays */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#09251F]/80 via-[#09251F]/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#09251F]/75 via-transparent to-[#09251F]/15" />
 
-                  {/* Year */}
-                  <div className="relative z-10 mt-7">
-                    <p
-                      className={`font-display text-4xl font-extrabold leading-none tracking-tight ${theme.year}`}
-                    >
-                      {t.year}
-                    </p>
-                    <div
-                      className={`mt-3 h-1 w-9 rounded-full ${theme.line} transition-all duration-300 group-hover:w-14`}
-                    />
-                  </div>
+      {/* Top label */}
+      <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/20 bg-[#123D35]/65 px-3 py-2 backdrop-blur-md sm:left-6 sm:top-6">
+        <span className="h-2 w-2 rounded-full bg-[#D6FF45]" />
+        <span className="text-[9px] font-bold uppercase tracking-[0.18em] text-white sm:text-[10px]">
+          Our journey · Since 1998
+        </span>
+      </div>
 
-                  {/* Milestone details */}
-                  <div className="relative z-10 mt-4">
-                    <h4
-                      className={`font-display text-lg font-bold leading-tight ${theme.title}`}
-                    >
-                      {t.event}
-                    </h4>
-                    <p className={`mt-2 text-xs leading-5 ${theme.body}`}>
-                      {t.desc}
-                    </p>
-                  </div>
+      {/* Video message */}
+      
+      {/* Corner accent */}
+      <div className="absolute right-4 top-4 h-8 w-8 rounded-tr-xl border-r-2 border-t-2 border-[#D6FF45]/80 sm:right-6 sm:top-6" />
+    </div>
+  </motion.div>
 
-                  {/* Card footer */}
-                  <div className="relative z-10 mt-auto flex items-center gap-2 pt-5">
-                    <span className={`h-1.5 w-1.5 rounded-full ${theme.line}`} />
-                    <span
-                      className={`text-[8px] font-bold uppercase tracking-[0.12em] ${theme.body}`}
-                    >
-                      Vikash Pack · Milestone
-                    </span>
-                  </div>
-                </motion.article>
-              );
-            })}
-          </div>
+  {/* 3D base / depth effect */}
+  <div className="mx-auto mt-2 h-3 w-[82%] rounded-b-2xl bg-gradient-to-r from-[#123D35]/5 via-[#123D35]/20 to-[#123D35]/5 blur-[2px]" />
+
+  {/* Caption */}
+  <div className="mt-4 flex flex-wrap items-center justify-between gap-2 px-2 text-[9px] font-semibold uppercase tracking-[0.16em] text-[#52665A] sm:text-[10px]">
+    <span>Quality in every detail</span>
+    <span className="flex items-center gap-2">
+      <span className="h-1.5 w-1.5 rounded-full bg-[#18A999]" />
+      Moving forward, together
+    </span>
+  </div>
+</motion.div>
+
+</motion.div>
+
+
+       
 
           {/* Timeline signature */}
           <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-[#123D35]/10 pt-5">

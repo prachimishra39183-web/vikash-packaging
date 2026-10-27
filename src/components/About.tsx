@@ -144,12 +144,7 @@ export default function About() {
               <span className="text-[#18A999]">moves.</span>
             </h2>
 
-            <p className="mt-5 max-w-lg text-sm leading-7 text-[#52665A] sm:text-base">
-              A specialist industrial packaging house, not a general
-              distributor. Vikash Pack engineers the straps and seals that
-              secure cargo from the production line to the export dock.
-            </p>
-
+       
             {/* Company statistics */}
             <div className="mt-8 grid max-w-md grid-cols-3 gap-3">
               {NUMBERS.map((n, i) => (
@@ -164,7 +159,7 @@ export default function About() {
                   <div className="font-display text-3xl font-extrabold leading-none tracking-tight text-[#123D35] sm:text-4xl">
                     {n.value}
                   </div>
-                  <p className="mt-2 text-[10px] leading-4 text-[#607167] sm:text-xs">
+                  <p className="mt-2 text-[10px]  leading-4 text-[#123D35] sm:text-2xl">
                     {n.label}
                   </p>
                 </motion.div>
@@ -223,50 +218,47 @@ export default function About() {
 
         {/* Company timeline */}
         {/* Company timeline — Ivory theme */}
-    <section className="relative isolate left-1/2 w-screen -translate-x-1/2 overflow-hidden border-t border-[#D9D2C6] bg-[#F2EEE6] py-12 text-[#292D2A] md:py-16">
+    
   
 
   {/* Soft ivory glow */}
-           <div className="pointer-events-none absolute -right-20 top-10 h-56 w-56 rounded-full bg-[#E5DED1]/50 blur-3xl" />
-          
-          {/* Timeline heading */}
-          {/* Timeline heading */}
-<div className="relative z-10 mb-10 flex w-full flex-col justify-between gap-6 md:mb-12 md:flex-row md:items-end">
+          <div className="pointer-events-none absolute -right-20 top-10 h-56 w-56 rounded-full bg-white/10 blur-3xl" />
 
-  {/* Left: Heading content */}
+{/* Timeline heading */}
+<div className="relative z-10 mb-10 flex w-full flex-col justify-between gap-6 md:mb-12 md:flex-row md:items-end">
   <div className="max-w-2xl">
     <div className="mb-5 flex items-center gap-3">
-      <span className="h-1 w-8 shrink-0 rounded-full bg-[#8B9182]" />
-      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#65685F] sm:text-xs">
+      <span className="h-1 w-8 shrink-0 rounded-full bg-red-500" />
+      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 sm:text-xs">
         Our journey · Since day one
       </span>
     </div>
 
-    <h3 className="font-display text-3xl font-extrabold leading-[1.08] tracking-tight text-[#292D2A] sm:text-4xl md:text-5xl lg:text-6xl">
+    <h3 className="font-display text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
       BUILT THROUGH
       <br />
-      <span className="text-[#777D70]">EXPERIENCE.</span>
+      <span className="text-red-400">EXPERIENCE.</span>
     </h3>
-
   </div>
 
-  {/* Right: Timeline badge */}
-  <div className="flex w-fit shrink-0 items-center gap-3 rounded-xl border border-[#D9D2C6] bg-[#F8F5EF] px-4 py-3">
-    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#E5DED1] text-[#292D2A]">
+  {/* Timeline badge */}
+  <div className="flex w-fit shrink-0 items-center gap-3 rounded-xl border border-white/15 bg-black/30 px-4 py-3 backdrop-blur-md">
+    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-red-500/15 text-red-400">
       <CalendarDays size={18} />
     </span>
 
     <div>
-      <p className="font-display text-sm font-bold text-[#292D2A]">
+      <p className="font-display text-sm font-bold text-white">
         ALWAYS MOVING
       </p>
-      <p className="mt-1 text-[11px] text-[#77776F]">
+      <p className="mt-1 text-[11px] text-white/65">
         One milestone at a time
       </p>
     </div>
   </div>
-
 </div>
+
+
 
           {/* Aligned timeline cards */}
 
@@ -295,7 +287,7 @@ export default function About() {
     whileHover={{ scale: 1.01 }}
   >
     {/* Video blends directly into the page */}
-    <div className="relative h-[400px] sm:h-[400px] md:h-[480px] lg:h-[500px]">
+    <div className="relative h-[300px] sm:h-[400px] md:h-[480px] lg:h-[470px]">
       <video
         className="absolute inset-0 h-full w-full object-cover"
         src="/time.mp4"
@@ -327,9 +319,7 @@ export default function About() {
 
       
 
-        <p className="mt-3 max-w-md text-xs leading-relaxed text-white/85 sm:text-sm">
-          Decades of commitment to quality, reliability and better packaging.
-        </p>
+       
       </div>
     </div>
   </motion.div>
@@ -339,7 +329,7 @@ export default function About() {
 
 {/* Timeline signature */}
 <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-[#123D35]/10 pt-5">
-  <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#607167] sm:text-xs">
+  <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-white sm:text-xs">
     Experience builds trust. Quality builds the future.
   </p>
 
@@ -351,7 +341,7 @@ export default function About() {
   </div>
 </div>
 
-        </section>
+        
       </div>
     </section>
   );
